@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stqa-practicals"
+version = "1.0.0"
+description = "Extract practical-wise aims, steps, source code, and full text from STQA PDF files."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "STQA Practicals"}]
+dependencies = ["PyMuPDF>=1.23.0"]
+
+[project.scripts]
+stqa-extract = "stqa_practicals.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
