@@ -19,11 +19,13 @@ A Python command-line tool for extracting practical sections and code-like text 
 
 ## Installation
 
-Install from PyPI:
+Install directly from the public GitHub repository:
 
 ```bash
-python -m pip install stqa-practicals
+python -m pip install git+https://github.com/pranaypol/stqa-practicals.git
 ```
+
+A PyPI installation (`python -m pip install stqa-practicals`) will work once this project has been published on PyPI.
 
 ## Usage
 
