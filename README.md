@@ -1,17 +1,25 @@
 # stqa-practicals
 
-A Python command-line tool for extracting text and practical sections from STQA practical PDFs.
+A Python command-line tool for extracting practical sections and code-like text from STQA practical PDF files.
 
 ## Features
 
 - Extracts PDF text into a Markdown file.
 - Detects practical sections and exports them individually.
+- Extracts labelled aims and numbered steps when detectable.
 - Writes a JSON index of detected practicals.
 - Identifies code-like text blocks as candidates for review.
 
-> **Note:** Extraction is heuristic. Review the output before using it. Scanned/image-only pages may require OCR and are not guaranteed to be extracted.
+> **Important:** Extraction is heuristic. Review the output before using it. Scanned/image-only pages may need OCR and are not guaranteed to be extracted.
+
+## Requirements
+
+- Python 3.9+
+- PyMuPDF
 
 ## Installation
+
+Install from PyPI:
 
 ```bash
 python -m pip install stqa-practicals
@@ -29,20 +37,15 @@ Alternatively:
 python -m stqa_practicals "practicals.pdf" -o extracted
 ```
 
-The output directory contains:
-- `full_text.md`
-- `practicals.json`
-- Individual practical Markdown files
-- Text-based code candidate files
+Useful options:
 
-## Requirements
+- `--no-code`: skip code-candidate detection.
+- `--min-code-lines 4`: require at least four non-empty lines per code candidate.
+- `--json-summary`: print the extraction summary as JSON.
 
-- Python 3.9+
-- PyMuPDF
+The output directory contains `full_text.md`, `practicals.json`, individual practical Markdown files, and text-based code-candidate files.
 
 ## Development
-
-Clone the repository and install in editable mode:
 
 ```bash
 git clone https://github.com/pranaypol/stqa-practicals.git
@@ -52,4 +55,4 @@ python -m pip install -e .
 
 ## License
 
-No license has been selected yet. Until a license is added, standard copyright restrictions apply.
+MIT. See [LICENSE](LICENSE).
